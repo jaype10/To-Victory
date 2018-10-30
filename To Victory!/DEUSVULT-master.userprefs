@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="DEUSVULT-master.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Base\Interaveis\Personagem.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Especificacoes\Geral\PedidoController.cs">
     <Files>
       <File FileName="Assets\Scripts\Base\Interaveis\Personagem.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Especificacoes\Geral\PedidoController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

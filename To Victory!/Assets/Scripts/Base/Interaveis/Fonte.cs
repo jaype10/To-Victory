@@ -9,11 +9,11 @@ public class Fonte : Interavel
 {
     [Tooltip("Lista com os objetos que estarão disponíveis.")]
     public List<Objeto> objetos;
-
+    protected bool isInfinito = false;
     /// <summary>
     /// Pega um objeto que esteja disponível na fonte.
     /// </summary>
-    public void PegarObjeto ()
+    public virtual void PegarObjeto ()
     {
         //Verifica se o personagem está com a mão ocupada.
         if (Personagem.ObjetoNaMao == null)
@@ -23,8 +23,20 @@ public class Fonte : Interavel
             {
                 //Caso tenha recursos, adiciona um Objeto na propriedade ObjetoNaMao de Personagem e cria um prefab para mostrar isto.
                 Objeto a = objetos.ElementAt(0);
-                objetos.Remove(a);
-                Personagem.ObjetoNaMao = a;                
+
+                //Se for infinito, essa fonte sempre terá a mesma quantidade de objetos até o final. Também, só permite que 1 objeto seja pego por ela.
+                //Caso não seja, remove o primeiro objeto da lista.
+                if (!isInfinito)
+                {
+                    objetos.Remove(a);
+                }
+
+                if (TutorialController.isEsperandoPegarTrigo)
+                {
+                    TutorialController.MostrarPegouObjetoFonte();
+                }
+
+                Personagem.ObjetoNaMao = Instantiate(a);
                 a.SetarMaoJogador(Personagem.name);
             }
             else

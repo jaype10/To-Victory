@@ -76,9 +76,12 @@
     <Compile Include="Assets\Scripts\Base\Objetos\ObjetoAperfeicoavel.cs" />
     <Compile Include="Assets\Scripts\Base\Objetos\Pedido.cs" />
     <Compile Include="Assets\Scripts\Especificacoes\Geral\FaseController.cs" />
+    <Compile Include="Assets\Scripts\Especificacoes\Geral\MessageController.cs" />
     <Compile Include="Assets\Scripts\Especificacoes\Geral\PedidoController.cs" />
+    <Compile Include="Assets\Scripts\Especificacoes\Geral\TutorialController.cs" />
     <Compile Include="Assets\Scripts\Especificacoes\Interaveis\ArrumaArmadura\BalcaoController.cs" />
     <Compile Include="Assets\Scripts\Especificacoes\Interaveis\ArrumaArmadura\CarrinhoController.cs" />
+    <Compile Include="Assets\Scripts\Especificacoes\Interaveis\ArrumaArmadura\FonteMagicaController.cs" />
     <Compile Include="Assets\Scripts\Especificacoes\Interaveis\ArrumaArmadura\ForjaController.cs" />
     <Compile Include="Assets\Scripts\Especificacoes\Interaveis\ArrumaArmadura\FornalhaController.cs" />
     <Compile Include="Assets\Scripts\Especificacoes\Personagens\BarbaroController.cs" />

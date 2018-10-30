@@ -109,6 +109,54 @@ public static class MyCanvas
         }
     }
 
+    private static GameObject PainelMensagem
+    {
+        get
+        {
+            return GameObject.Find("Canvas").transform.Find("Painel_Mensagens").gameObject;
+        }
+    }
+
+    public static Text Mensagem
+    {
+        get
+        {
+            return PainelMensagem.transform.Find("TxtMensagem").GetComponent<Text>();
+        }
+    }
+
+    public static Button BtnMensagemProximo
+    {
+        get
+        {
+            return PainelMensagem.transform.Find("BtnNext").GetComponent<Button>();
+        }
+    }
+
+    public static GameObject MostrarReceptor
+    {
+        get
+        {
+            return GameObject.Find("CanvasWorld").transform.Find("MostrarReceptor").gameObject;
+        }
+    }
+
+    public static GameObject MostrarManipulador
+    {
+        get
+        {
+            return GameObject.Find("CanvasWorld").transform.Find("MostrarManipulador").gameObject;
+        }
+    }
+
+    public static GameObject MostrarFonte
+    {
+        get
+        {
+            return GameObject.Find("CanvasWorld").transform.Find("MostrarFonte").gameObject;
+        }
+    }
+
     /// <summary>
     /// Procura e apaga o primeiro filho que encontrar. O algoritmo procurará pelo nome do Objeto Necessário do pedido.
     /// </summary>
@@ -121,6 +169,6 @@ public static class MyCanvas
                 .Where(x => x.GetComponentInChildren<Text>().text.Contains(nomeObjetoNecessario))
                 .First());
         }
-    }
+    }    
 
 }

@@ -31,7 +31,7 @@ public class FaseController : MonoBehaviour
         for (float i = 0; i <= tempoMaximoFase; i += 0.1f)
         {
             tempoDecorrido = i;
-            MyCanvas.TxtTempo.text = string.Format("{0:00.0}", i);
+            MyCanvas.TxtTempo.text = string.Format("{0:00.0} de {1:00.0}", i, tempoMaximoFase);
             yield return new WaitForSeconds(0.1f);
         }
 

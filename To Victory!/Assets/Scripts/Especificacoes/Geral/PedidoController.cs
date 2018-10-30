@@ -11,7 +11,7 @@ using UnityEngine.UI;
 /// </summary>
 public class PedidoController : MonoBehaviour
 {
-    [Tooltip("Lista de pedidos que poderão ser instanciados")]
+    [Tooltip("Lista de pedidos que serão ser instanciados")]
     public List<Pedido> pedidosPossiveis;
 
     [Tooltip("Tempo necessário para que um novo pedido seja adicionado.")]
@@ -41,16 +41,17 @@ public class PedidoController : MonoBehaviour
         {
             //Instancia um pedido e o adiciona na lista de pedidos em andamento.
             Pedido p = InstanciaPedido();
-            pedidosAndamento.Add(p);
+            if (p != null)
+            {
+                pedidosAndamento.Add(p);
 
+                StartCoroutine(MostrarPedido(p));
 
-            StartCoroutine(MostrarPedido(p));
-
-            //Espera os segundos determinados no Inspector.
-            yield return new WaitForSeconds(tempoNovoPedido);
-
-            //Quando termina essa corotina, uma nova entra em execução para gerar outros pedidos.
-            StartCoroutine(GeraPedido());
+                //Espera os segundos determinados no Inspector.
+                yield return new WaitForSeconds(tempoNovoPedido);
+                //Quando termina essa corotina, uma nova entra em execução para gerar outros pedidos.
+                StartCoroutine(GeraPedido());
+            }
         }
     }
 
@@ -93,9 +94,16 @@ public class PedidoController : MonoBehaviour
     /// <returns></returns>
     private Pedido InstanciaPedido()
     {
-        var r = UnityEngine.Random.Range(0, pedidosPossiveis.Count);
-        var pedidoRand = pedidosPossiveis[r];
-        var p = Instantiate<Pedido>(pedidoRand);
-        return p;
+        if (pedidosPossiveis.Count > 0)
+        {
+            var r = UnityEngine.Random.Range(0, pedidosPossiveis.Count);
+            var pedidoRand = pedidosPossiveis[r];
+            var p = Instantiate<Pedido>(pedidoRand);
+            return p;
+        }else
+        {
+            return null;
+        }
+        
     }
 }

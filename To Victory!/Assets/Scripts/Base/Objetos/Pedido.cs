@@ -34,7 +34,7 @@ public class Pedido : ScriptableObject
         objetoNecessario = Instantiate(objetoNecessario);
         objetoNecessario.estadoObj = EstadoObjeto.Pronto;
         //Verifica se o objeto entregue é o mesmo do objeto necessário e se está dentro do tempo de espera.
-        if (objEntregue == objetoNecessario && tempoDecorrido <= tempoDeEspera)
+        if (objEntregue.nome == objetoNecessario.nome && objEntregue.estadoObj == EstadoObjeto.Pronto)
         {
             return true;
         }else

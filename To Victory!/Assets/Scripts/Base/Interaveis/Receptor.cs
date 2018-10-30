@@ -72,6 +72,11 @@ public class Receptor : Interavel
             //Atribui a nova lista de pedido (sem o pedido que está completo agora) no campo 'pedidos' do PedidoController.
             Camera.main.GetComponent<PedidoController>().pedidosAndamento = p;
 
+            if (TutorialController.isEsperandoEntregar)
+            {
+                TutorialController.MostrarEntregouObjeto();
+            }
+
             // Avisa o persoangem que objeto foi entregue com sucesso. 
             Debug.Log("Objeto entregue com sucesso!");
         }

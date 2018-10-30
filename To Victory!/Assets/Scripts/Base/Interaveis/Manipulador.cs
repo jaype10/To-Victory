@@ -184,6 +184,11 @@ public class Manipulador : Interavel
         //Verifica se existe um objeto no Manipulador.
         if (objeto != null && FaseController.IsFaseRodando())
         {
+            if (TutorialController.isEsperandoManipular)
+            {
+                TutorialController.MostrarManipulouObjeto();
+            }
+
             //Se tiver, verifica se ele pode ser Aperfeiçoavel.
             if (objeto is ObjetoAperfeicoavel && objeto.estadoObj != EstadoObjeto.Pronto)
             {
